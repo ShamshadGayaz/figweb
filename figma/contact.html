@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Thememarket</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #5b2c91 0%, #3d1a5f 100%);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #5b2c91 0%, #3d1a5f 100%);
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 42px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 18px 20px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: #7cb342;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #689f38;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #1e88e5;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Contact Form */
+        .form-section {
+            margin-bottom: 80px;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: #7dd3fc;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #7cb342;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #7cb342;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn:hover {
+            background: #689f38;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #5b2c91;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: #4a2273;
+        }
+
+        .faq-arrow {
+            font-size: 18px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 25px 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        /* Help Center */
+        .help-center {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .help-center p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .help-btn {
+            display: inline-block;
+            background: white;
+            color: #1e3a5f;
+            border: 2px solid #e0e0e0;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-color: #7cb342;
+        }
+
+        /* Support Banner */
+        .support-banner {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #5b2c91 0%, #3d1a5f 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .support-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 25px;
+            background: rgba(124, 179, 66, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .support-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #7cb342;
+            fill: none;
+            stroke-width: 3;
+        }
+
+        .support-banner h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .support-banner p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .support-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .support-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .support-feature svg {
+            width: 20px;
+            height: 20px;
+            stroke: #7cb342;
+            fill: none;
+            stroke-width: 3;
+        }
+
+        @media (max-width: 968px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .support-features {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Thememarket</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3.2c0 .1.1.2.2.2H19v2H7c-1.1 0-2-.9-2-2 0-.4.1-.7.2-1L6.6 7.6 4 2H2v2h1l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1zm11.5-8.3L17 10l-1.7-3.5-.8.1-1.7 3.5L11 10 9.3 6.5 8.5 6.6 6.8 10 5 6.5h14z"/></svg>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-subtitle">Creative Solutions for Modern Brands.</div>
+            <h1 class="hero-title">We'd Love to Hear From You</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for WordPress, E commerce...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have questions or need assistance? We're here to help. Reach out to us through any of the following channels.</p>
+
+        <!-- Contact Cards -->
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+                </div>
+                <h3>Email Us</h3>
+                <p>Our team is here to help</p>
+                <p style="margin-top: 8px;">support@marketplace.com</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <h3>Call Us</h3>
+                <p>Mon-Fri from 9am to 6pm</p>
+                <p style="margin-top: 8px;">+1 (555) 123-4567</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Live Chat</h3>
+                <p>Get instant support</p>
+                <p style="margin-top: 8px;">Average response: 2 minutes</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-section">
+            <h2 class="section-title">Send Us a Message</h2>
+            <p class="section-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions</p>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What are your support hours?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our support team is available Monday through Friday from 9am to 6pm EST. We also offer 24/7 email support with responses within 24 hours.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How quickly will I get a response?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Live chat responses average 2 minutes. Email inquiries are typically answered within 24 hours. Phone support provides immediate assistance during business hours.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer phone support?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! You can reach our support team at +1 (555) 123-4567 during business hours (Mon-Fri, 9am-6pm EST).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I schedule a demo or consultation?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! Contact us through any channel and our team will schedule a personalized demo or consultation at your convenience.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Where is your company located?</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Our headquarters is located in San Francisco, California, with remote team members across 150+ countries worldwide.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Center -->
+        <div class="help-center">
+            <p>Still have questions?</p>
+            <a href="#" class="help-btn">Visit Help Center</a>
+        </div>
+
+        <!-- Support Banner -->
+        <div class="support-banner">
+            <div class="support-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2>We're Here to Help</h2>
+            <p>Our dedicated support team is committed to providing you with the best experience. Whether you need technical assistance, have sales questions, or just want to say hello, we're always happy to hear from you.</p>
+            <div class="support-features">
+                <div class="support-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>24-hour response time</span>
+                </div>
+                <div class="support-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Expert support team</span>
+                </div>
+                <div class="support-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Multiple contact options</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
