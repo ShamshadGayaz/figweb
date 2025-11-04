@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThemeMarket - Build Stunning Websites Faster</title>
+    <a href="themes.html"></a>
+    <a href="templates.html"></a>
+    <a href="about us.html"></a>
+    <a href="contact.html"></a>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .build {
+            background: linear-gradient(180deg, #4a1a7d 0%, #5d2799 50%, #f5f5f7 50%, #f5f5f7 100%);
+            min-height: 100vh;
+        }
+
+        .build__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: transparent;
+        }
+
+        .build__logo {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            font-style: italic;
+            color: white;
+            font-weight: 600;
+        }
+
+        .build__nav {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .build__nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .build__nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .build__nav-link--active {
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+        }
+
+        .build__actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .build__icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            transition: background 0.3s;
+        }
+
+        .build__icon-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .build__content {
+            display: flex;
+            padding: 60px 60px 40px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .build__left {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .build__badge {
+            background: #4318d4;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .build__title {
+            font-size: 56px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .build__title-gradient {
+            background: linear-gradient(90deg, #6b4cff 0%, #b84cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .build__description {
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .build__search {
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 8px 8px 8px 20px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .build__search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .build__search-input::placeholder {
+            color: #999;
+        }
+
+        .build__search-btn {
+            background: #7ac943;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .build__search-btn:hover {
+            background: #6db838;
+        }
+
+        .build__stats {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .build__stat {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .build__stat-icons {
+            display: flex;
+            gap: -10px;
+        }
+
+        .build__stat-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+            border: 3px solid #f5f5f7;
+        }
+
+        .build__stat-icon:nth-child(1) { background: #6b4cff; margin-left: 0; }
+        .build__stat-icon:nth-child(2) { background: #4c7bff; margin-left: -10px; }
+        .build__stat-icon:nth-child(3) { background: #ff4c9f; margin-left: -10px; }
+        .build__stat-icon:nth-child(4) { background: #ffb84c; margin-left: -10px; }
+
+        .build__stat-info {
+            color: #333;
+        }
+
+        .build__stat-number {
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .build__stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .build__rating-icon {
+            width: 36px;
+            height: 36px;
+            background: #7ac943;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .build__right {
+            flex: 1;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .build__preview {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .build__preview-card {
+            position: absolute;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .build__preview-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .build__preview-card--food {
+            width: 280px;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .build__preview-card--recipe {
+            width: 280px;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .build__preview-card--travel {
+            width: 450px;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+        }
+
+        .build__preview-card--restaurant {
+            width: 260px;
+            bottom: 0;
+            right: 20px;
+            z-index: 1;
+        }
+
+        .build__preview-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="build">
+        <header class="build__header">
+            <div class="build__logo">Thememarket</div>
+            
+            <nav>
+                <ul class="build__nav">
+                    <li><a href="#" class="build__nav-link build__nav-link--active">Home</a></li>
+                    <li><a href="themes.html" class="build__nav-link">Themes</a></li>
+                    <li><a href="templates.html" class="build__nav-link">Templates</a></li>
+                    <li><a href="about us.html" class="build__nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="build__nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="build__actions">
+                <button class="build__icon-btn">👤</button>
+                <button class="build__icon-btn">🛒</button>
+            </div>
+        </header>
+
+        <div class="build__content">
+            <div class="build__left">
+                <span class="build__badge">50,000+ Premium Templates Available</span>
+                
+                <h1 class="build__title">
+                    Build Stunning
+                    <span class="build__title-gradient">Websites Faster</span>
+                </h1>
+
+                <p class="build__description">
+                    Access thousands of professionally designed WordPress themes and templates. Launch your dream website in minutes, not months.
+                </p>
+
+                <div class="build__search">
+                    <input type="text" class="build__search-input" placeholder="Search for WordPress, E-commerce,...">
+                    <button class="build__search-btn">Search</button>
+                </div>
+
+                <div class="build__stats">
+                    <div class="build__stat">
+                        <div class="build__stat-icons">
+                            <div class="build__stat-icon">A</div>
+                            <div class="build__stat-icon">B</div>
+                            <div class="build__stat-icon">C</div>
+                            <div class="build__stat-icon">D</div>
+                        </div>
+                        <div class="build__stat-info">
+                            <span class="build__stat-number">12M+ Users</span>
+                            <span class="build__stat-label">Trusted worldwide</span>
+                        </div>
+                    </div>
+
+                    <div class="build__stat">
+                        <div class="build__rating-icon">✓</div>
+                        <div class="build__stat-info">
+                            <span class="build__stat-number">4.9/5 Rating</span>
+                            <span class="build__stat-label">From 50k reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="build__right">
+                <div class="build__preview">
+                    <div class="build__preview-card build__preview-card--food">
+                        <img src="images/food.jpg" alt="Food Website">
+                    </div>
+
+                    <div class="build__preview-card build__preview-card--recipe">
+                        <img src="images/recipe.jpg" alt="Recipe Website">
+                    </div>
+
+                    <div class="build__preview-card build__preview-card--travel">
+                        <img src="images/travel.jpg" alt="Travel Website">
+                    </div>
+
+                    <div class="build__preview-card build__preview-card--restaurant">
+                        <img src="images/restaurant.jpeg" alt="Restaurant Website">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* Browse Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .category-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+        }
+
+        .icon-wordpress { background: linear-gradient(135deg, #21a1e1 0%, #1e87c9 100%); }
+        .icon-ecommerce { background: linear-gradient(135deg, #21d4e1 0%, #1eb8c9 100%); }
+        .icon-photography { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); }
+        .icon-business { background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%); }
+        .icon-blog { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
+        .icon-mobile { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+        .icon-marketing { background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); }
+        .icon-technology { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+
+        .category-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .category-count {
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Product Cards Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .product-author {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .product-price-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 14px;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .product-sales {
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cart {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .btn-cart:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+
+        .btn-preview {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            white-space: nowrap;
+        }
+
+        .btn-preview:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .featured-header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .btn-view-all {
+            background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3);
+        }
+
+        .btn-view-all:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(132, 204, 22, 0.4);
+        }
+
+        /* Collections Grid */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .collection-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .collection-content {
+            padding: 20px;
+        }
+
+        .collection-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .collection-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .collection-badge {
+            display: inline-block;
+            background: #84cc16;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid,
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-section {
+                padding: 40px 20px;
+            }
+
+            .featured-header-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Browse by Category Section -->
+        <div class="section">
+            <div class="section-header">Browse by Category</div>
+            <div class="section-subtitle">Find the perfect template for your project</div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon icon-wordpress">💎</div>
+                    <div class="category-name">Word Press</div>
+                    <div class="category-count">14,289 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-ecommerce">🛒</div>
+                    <div class="category-name">e Commerce</div>
+                    <div class="category-count">8,562 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-photography">📷</div>
+                    <div class="category-name">Photography</div>
+                    <div class="category-count">3,421 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-business">💼</div>
+                    <div class="category-name">Business</div>
+                    <div class="category-count">9,156 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-blog">📄</div>
+                    <div class="category-name">Blog Magazine</div>
+                    <div class="category-count">5,234 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-mobile">📱</div>
+                    <div class="category-name">Mobile Apps</div>
+                    <div class="category-count">2,890 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-marketing">📢</div>
+                    <div class="category-name">Marketing</div>
+                    <div class="category-count">4,567 Items</div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon icon-technology">🎯</div>
+                    <div class="category-name">Technology</div>
+                    <div class="category-count">6,123 Items</div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Featured WordPress Themes Section -->
+        <div class="section featured-section">
+            <div class="featured-header-wrapper">
+                <div>
+                    <div class="section-header">Featured WordPress Themes</div>
+                    <div class="section-subtitle">Every week, our staff personally hand-pick some of the<br>best new website themes from our collection.</div>
+                </div>
+                <button class="btn-view-all">View all Featured Themes</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);">
+                       <img src="images/marketing agency.png">
+                        <span>Flatsome - Multi-Purpose</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Flatsome - Multi-Purpose</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$99</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                        <img src="images/restaurant.jpeg">
+                        <span>Restaurant Website</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Restaurant Website</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+                        <img src="images/digital.png">
+                        <span>Avada - Website Builder For</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Avada - Website Builder For</div>
+                        <div class="product-author">by ThemeFusion</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Product Cards Section -->
+        <div class="section">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/harmony.jpg">
+                        <span>Salient - Ecommerce multipurpose</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Salient - Ecommerce multipurpose</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+                        <img src="images/website.jpg">
+                        <span>Uncode - Portfolio</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Uncode - Portfolio</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);">
+                       <img src="images/best selling.png">
+                        <span>Porto - HTML Code</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Porto - HTML Code</div>
+                        <div class="product-author">by P-THEMES</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Trending Collections Section -->
+        <div class="section">
+            <div class="section-header">Trending Collections</div>
+            <div class="section-subtitle">Curated collections from our experts</div>
+            
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <div class="collection-image" style="background: linear-gradient(135deg, #92400e 0%, #78350f 100%);">
+                        <img src="images/trencing collection1.png">
+                        <span>Coffee Shop Theme</span>
+                    </div>
+                    <div class="collection-content">
+                        <div class="collection-title">Amazon You 96 Banners with</div>
+                        <div class="collection-description">Premium collection</div>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+                       <img src="images/trending collection2.jpg">
+                        <span>Shoes Store</span>
+                    </div>
+                    <div class="collection-content">
+                        <div class="collection-title">Are you ready to start the Bay</div>
+                        <div class="collection-description">E-commerce themes</div>
+                    </div>
+                </div>
+
+                <div class="collection-card">
+                    <div class="collection-image" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
+                        <img src="images/trending collection3.png">
+                        <span>Portfolio Designs</span>
+                    </div>
+                    <div class="collection-content">
+                        <div class="collection-title">Creative Portfolios</div>
+                        <div class="collection-description">Showcase your work in style</div>
+                        <span class="collection-badge">58 Items</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Marketplace Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .stats-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .stats-subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        /* Section styling */
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* Toggle Buttons */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .toggle-wrapper {
+            background: #e5e7eb;
+            border-radius: 50px;
+            padding: 4px;
+            display: inline-flex;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: #4b5563;
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(132, 204, 22, 0.3);
+        }
+
+        /* Product Cards Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-placeholder {
+            width: 90%;
+            height: 90%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            min-height: 40px;
+        }
+
+        .product-author {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .product-price-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .product-sales {
+            color: #999;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cart {
+            background: #6366f1;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .btn-cart:hover {
+            background: #4f46e5;
+            transform: scale(1.05);
+        }
+
+        .btn-preview {
+            background: white;
+            color: #6366f1;
+            border: 2px solid #6366f1;
+            white-space: nowrap;
+        }
+
+        .btn-preview:hover {
+            background: #6366f1;
+            color: white;
+        }
+
+        /* View All Button */
+        .view-all-container {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .btn-view-all {
+            background: transparent;
+            color: #84cc16;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            font-size: 32px;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #6366f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 968px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-title {
+                font-size: 24px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .toggle-btn {
+                padding: 10px 24px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-title">Trusted by Millions Worldwide</div>
+        <div class="stats-subtitle">Join the largest digital marketplace community</div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">12M+</div>
+                <div class="stat-label">Community Members</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Digital Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500M+</div>
+                <div class="stat-label">Total Downloads</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15K+</div>
+                <div class="stat-label">Elite Authors</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Best Sellers Section -->
+    <div class="section">
+        <div class="container">
+            <div class="section-header">Best Sellers</div>
+            <div class="section-subtitle">Top selling items this period</div>
+            
+            <div class="toggle-container">
+                <div class="toggle-wrapper">
+                    <button class="toggle-btn active">This Week</button>
+                    <button class="toggle-btn">This Month</button>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%);">
+                            Flatsome - Multi-Purpose
+                            <img src="images/food.jpg">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Flatsome - Multi-Purpose</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$12</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);">
+                            Avada - Website Builder For
+                            <img src="images/digital.png">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Avada - Website Builder For</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$19</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+                            Food Delivery Website
+                            <img src="images/restaurant.jpeg">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Food Delivery Website</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$25</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Arrivals Section -->
+    <div class="section" style="background: white; padding-top: 80px; padding-bottom: 80px;">
+        <div class="container">
+            <div class="section-header">New Arrivals</div>
+            <div class="section-subtitle">Fresh templates added this week</div>
+            
+            <div class="view-all-container">
+                <button class="btn-view-all">View All →</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+                           <img src="images/zenix.jpeg">
+                            Zenix - Modern Dashboard &
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Zenix - Modern Dashboard &</div>
+                        <div class="product-author">by DexignZone</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$99</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); color: #1f2937;">
+                            <img src="images/shopmaster.jpeg">
+                            ShopMaster - Ultimate eCommerce
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">ShopMaster - Ultimate eCommerce</div>
+                        <div class="product-author">by ThemePure</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$36</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #047857 0%, #065f46 100%);">
+                            <img src="images/blogify.jpeg">
+                            Blogify - Minimal Blog WordPress
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Blogify - Minimal Blog WordPress</div>
+                        <div class="product-author">by ThemeFusion</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$25</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+                            <img src="images/launchpad.png">
+                            LaunchPad - SaaS Landing Page
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">LaunchPad - SaaS Landing Page</div>
+                        <div class="product-author">by UX-themes</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$22</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+                            <img src="images/appflow.jpg">
+                            AppFlow - Mobile App Showcase
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">AppFlow - Mobile App Showcase</div>
+                        <div class="product-author">by DigitalHub</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$52</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);">
+                            <img src="images/emergency.jpg">
+                            CreativeStudio - Agency
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">CreativeStudio - Agency</div>
+                        <div class="product-author">by P-THEMES</div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <div class="product-price">$15</div>
+                                <div class="product-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">6</span>
+                                </div>
+                                <div class="product-sales">205 Sales</div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-cart">🛒</button>
+                                <button class="btn btn-preview">Live Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-brand">ThemeMarket</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">All Items</a>
+                    <a href="#" class="footer-link">WordPress Themes</a>
+                    <a href="#" class="footer-link">HTML Templates</a>
+                    <a href="#" class="footer-link">UI Templates</a>
+                    <a href="#" class="footer-link">Plugins</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Careers</a>
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Press</a>
+                    <a href="#" class="footer-link">Blog</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Help Center</a>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">Forums</a>
+                    <a href="#" class="footer-link">Contact Support</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">License Agreement</a>
+                </div>
+                <div style="margin-top: 20px;">
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">tw</a>
+                        <a href="#" class="social-link">li</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 ThemeMarket. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Toggle button functionality
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>

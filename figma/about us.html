@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Thememarket</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #5b2c91 0%, #3d1a5f 100%);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #5b2c91 0%, #3d1a5f 100%);
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 42px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .search-bar {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 18px 20px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: #7cb342;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: #689f38;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #1e3a5f;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: #f0f4f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #7cb342;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Mission Cards */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .mission-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mission-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #1e88e5;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .mission-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1d1d1f;
+            margin-bottom: 15px;
+        }
+
+        .mission-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 320px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .team-info {
+            background: #1e3a5f;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .team-role {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 0 50px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, #2c2559 0%, #1e1a3d 100%);
+            border-radius: 20px;
+            padding: 60px 50px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-title {
+            font-size: 42px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 35px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #7cb342;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #689f38;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1d1d1f;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 968px) {
+            .stats-grid,
+            .mission-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid,
+            .mission-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .cta-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Thememarket</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="themes.html">Themes</a></li>
+            <li><a href="templates.html">Templates</a></li>
+            <li><a href="about us.html" class="active">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-9.8-3.2c0 .1.1.2.2.2H19v2H7c-1.1 0-2-.9-2-2 0-.4.1-.7.2-1L6.6 7.6 4 2H2v2h1l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1zm11.5-8.3L17 10l-1.7-3.5-.8.1-1.7 3.5L11 10 9.3 6.5 8.5 6.6 6.8 10 5 6.5h14z"/></svg>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="images/about us.jpg">
+            <div class="hero-subtitle">Creative Solutions for Modern Brands.</div>
+            <h1 class="hero-title">Empowering Creators Worldwide</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for WordPress, E commerce...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <h2 class="section-title">Save on UI Templates</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div class="stat-number">2.5M+</div>
+                <div class="stat-label">Downloads</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <div class="stat-number">15K+</div>
+                <div class="stat-label">Products</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+
+        <!-- Mission Cards -->
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="mission-title">Our Mission</h3>
+                <p class="mission-text">To democratize web design by providing high-quality, affordable templates and themes that empower creators to build stunning websites without barriers.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3 class="mission-title">Our Vision</h3>
+                <p class="mission-text">To be the world's most trusted marketplace for web templates and themes, known for quality, innovation, and exceptional customer experience.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m8.66-11L17 11.66M11.66 17L7 21.66m13.66-2.99L17 15.01M11.66 11L7 6.34"/></svg>
+                </div>
+                <h3 class="mission-title">Our Impact</h3>
+                <p class="mission-text">We've helped over 50,000 creators launch their websites, saving millions in development costs and countless hours of work.</p>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <h2 class="section-title">Our Core Values</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 50px; font-size: 16px;">The principles that guide everything we do</p>
+
+        <div class="mission-grid">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="mission-title">Customer First</h3>
+                <p class="mission-text">Everything we do starts with our customers. We listen, adapt, and continuously improve to deliver the best experience.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3 class="mission-title">Quality Excellence</h3>
+                <p class="mission-text">We maintain the highest standards for every theme and template. Each product is carefully reviewed and tested.</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m8.66-11L17 11.66M11.66 17L7 21.66m13.66-2.99L17 15.01M11.66 11L7 6.34"/></svg>
+                </div>
+                <h3 class="mission-title">Innovation</h3>
+                <p class="mission-text">We stay ahead of design trends and technology to provide cutting-edge solutions for modern web development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="stats-section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 50px; font-size: 16px;">The passionate people behind the platform</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">Sarah Johnson</div>
+                    <div class="team-role">CEO & Founder</div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">Michael Chen</div>
+                    <div class="team-role">CTO</div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">Emily Rodriguez</div>
+                    <div class="team-role">Head of Design</div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">David Park</div>
+                    <div class="team-role">VP of Product</div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">James Wilson</div>
+                    <div class="team-role">Head of Customer Success</div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="team-photo">[Team Photo]</div>
+                <div class="team-info">
+                    <div class="team-name">Lisa Anderson</div>
+                    <div class="team-role">Head of Marketing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-card">
+            <h2 class="cta-title">Ready to Start Creating?</h2>
+            <p class="cta-text">Join thousands of designers and developers who trust our platform to build amazing websites. Get started today.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Browse Templates</button>
+                <button class="btn btn-secondary">Contact</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
